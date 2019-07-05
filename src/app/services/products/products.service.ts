@@ -48,13 +48,6 @@ export class ProductsService {
         }
       }
   
-      for(let i = 0; i < products.length; ++i) {
-        if(products[i].id == product.id) {
-          index = i;
-          break;
-        }
-      }
-  
       if (index > -1) {
         products.splice(index, 1, product);
         localStorage.setItem('products', JSON.stringify(products));

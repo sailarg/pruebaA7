@@ -48,13 +48,6 @@ export class ProvidersService {
         }
       }
   
-      for(let i = 0; i < providers.length; ++i) {
-        if(providers[i].id == provider.id) {
-          index = i;
-          break;
-        }
-      }
-  
       if (index > -1) {
         providers.splice(index, 1, provider);
         localStorage.setItem('providers', JSON.stringify(providers));
@@ -68,9 +61,6 @@ export class ProvidersService {
   destroy(provider: IProvider) : any {
     return new Promise((resolve) => {
       let providers: IProvider[] = JSON.parse(localStorage.getItem('providers'));
- 
-      console.log(provider);
-
       let index: number = -1;
 
       for(let i = 0; i < providers.length; ++i) {
@@ -79,8 +69,6 @@ export class ProvidersService {
           break;
         }
       }
-
-      console.log(index);
 
       if (index > -1) {
         providers.splice(index, 1);
